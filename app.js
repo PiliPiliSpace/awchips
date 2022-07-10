@@ -1,28 +1,23 @@
 let handsontableContainer = document.getElementById('handsontable-container')
 
+let url = "https://pilipili.space/awchips/data/SUNXI_CHIP.csv"
 
-let file = "https://pilipili.space/awchips/data/SUNXI_CHIP.csv"
-let reader = new FileReader()
+let data = Papa.parse(url, {
+  download: true,
+  header: true,
+  skipEmptyLines: true,
+  complete: function (results) {
+    // reset container
+    handsontableContainer.innerHTML = ''
+    handsontableContainer.className = ''
 
-reader.onload = function (e) {
-  let csv = e.target.result
-  let data = Papa.parse(csv, {
-    header: true,
-    skipEmptyLines: true
-  })
-
-  // reset container
-  handsontableContainer.innerHTML = ''
-  handsontableContainer.className = ''
-
-  Handsontable(handsontableContainer, {
-    data: data.data,
-    rowHeaders: true,
-    colHeaders: data.meta.fields,
-    columnSorting: true,
-    width: '100%',
-    licenseKey: 'non-commercial-and-evaluation',
-  })
-}
-
-file && reader.readAsText(file)
+    Handsontable(handsontableContainer, {
+      data: results.data,
+      rowHeaders: true,
+      colHeaders: results.meta.fields,
+      columnSorting: true,
+      width: '100%',
+      licenseKey: 'non-commercial-and-evaluation',
+    })
+  }
+})
