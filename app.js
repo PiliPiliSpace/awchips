@@ -16,6 +16,8 @@ let data = Papa.parse(url, {
       rowHeaders: true,
       colHeaders: results.meta.fields,
       columnSorting: true,
+      filters: true,
+      dropdownMenu: true,
       width: '100%',
       licenseKey: 'non-commercial-and-evaluation',
     })
