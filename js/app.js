@@ -1,7 +1,6 @@
 let handsontableContainer = document.getElementById('handsontable-container')
 let url = "https://pilipili.space/awchips/data/SUNXI_CHIP.csv"
 
-
 setTimeout(function () {
   Papa.parse(url, {
     download: true,
@@ -9,9 +8,9 @@ setTimeout(function () {
     skipEmptyLines: true,
     complete: function (results) {
       // reset container
-      handsontableContainer.innerHTML = ''
-      handsontableContainer.className = ''
-
+      handsontableContainer.innerHTML = '';
+      handsontableContainer.className = '';
+	  console.log(results);
       Handsontable(handsontableContainer, {
         data: results.data,
         rowHeaders: true,
