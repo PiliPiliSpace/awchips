@@ -1,7 +1,7 @@
 let handsontableContainer = document.getElementById('handsontable-container')
 
 
-let file = this.files[0]
+let file = "https://pilipili.space/awchips/data/SUNXI_CHIP.csv"
 let reader = new FileReader()
 
 reader.onload = function (e) {
@@ -14,7 +14,6 @@ reader.onload = function (e) {
   // reset container
   handsontableContainer.innerHTML = ''
   handsontableContainer.className = ''
-  document.querySelector('input').remove()
 
   Handsontable(handsontableContainer, {
     data: data.data,
