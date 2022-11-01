@@ -1,2 +1,2 @@
 # awchips
-Unofficial Allwinner chip parameter collection
+Allwinner Chips Specifications Collection
